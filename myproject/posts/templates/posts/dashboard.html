@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="jumbotron" style="text-align:center; background : linear-gradient(to right, #b0b5b5, #131414);color:white">
+    <h1>DASHBOARD</h1>
+</div>
+
+<div class="container">
+
+    <div class="btn-group-lg" role="group" aria-label="Basic example" >
+        <a type="button" class="btn btn-success" href="/posts/add"><span style="color : white"> Create New Post</span> </a>
+        <a type="button" class="btn btn-primary" href="/posts/feedback">Users feed back </a>
+        <a type="button" class="btn btn-danger float-right" href="/posts/logout"><span style="color:white" >Logout</span> </a>
+    </div>
+    <br><hr><br>
+
+    <div class="container" style="color : white">
+    <h1>Post Editing panel</h1>
+    </div>
+    <br>
+    <table class="table table-bordered" style="background : linear-gradient(to right, #94b1eb, #e4e7ed); width : 80%;">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Heading</th>
+              <th scope="col">Date</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for p in post %}
+            <tr>
+              <th scope="row">{{p.s_no}}</th>
+              <td>{{p.heading}}</td>
+              <td>{{p.date}}</td>
+              <td><a href="/posts/edit/{{p.s_no}}">Edit</a></td>
+              <td><a href="/posts/delete/{{p.s_no}}"> <span style="color:red" >Delete </span></a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+</div>
+
+
+
+{% endblock %}

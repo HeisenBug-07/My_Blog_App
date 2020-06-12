@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="jumbotron" style="text-align:center">
+    <h1>{{posts.heading}}</h1>
+</div>
+
+<div class="container">
+<div class="jumbotron">
+  <h4 class="display-4">{{posts.sub_heading}}</h4>
+  <small>{{posts.date}}</small>
+  <hr class="my-4">
+  <p class="lead">{{posts.content}}</p>
+</div>
+
+</div>
+
+
+{% endblock %}

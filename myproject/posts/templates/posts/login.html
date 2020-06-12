@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="jumbotron" style="background : linear-gradient(to right, #b0b5b5, #131414);color:white; text-align:center">
+    <h1>LOGIN</h1>
+    <p>This is admin login panel if you are not an admin pease go to "home page" and read posts</p>
+</div>
+
+<div class="container" style="width:50%">
+    <div class="jumbotron">
+        <form method="post">
+            {{form.csrf_token}}
+            {{form.email.label}} <br> {{form.email}}
+            <ul>
+                {% for error in form.email.errors %}
+                <li style="color:red">{{error}}</li>
+                {% endfor %}
+            </ul>
+            <hr>
+            {{form.password.label}} <br> {{form.password}}
+            <ul>
+                {% for error in form.password.errors %}
+                <li style="color:red">{{error}}</li>
+                {% endfor %}
+            </ul>
+            <hr>
+            {{form.submit}}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

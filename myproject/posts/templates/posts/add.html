@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="jumbotron" style="background : linear-gradient(to right, #b0b5b5, #131414);color:white">
+    <h1>Add Blog Panel</h1>
+</div>
+
+<div class="container" style="width:50%; ">
+    <div class="jumbotron">
+        <form method="post">
+            {{form.csrf_token}}
+            {{form.heading.label}} <br> {{form.heading}}
+            <ul>
+                {% for error in form.heading.errors %}
+                <li style="color:red">{{error}}</li>
+                {% endfor %}
+            </ul>
+            <hr>
+            {{form.sub_heading.label}} <br> {{form.sub_heading}}
+            <ul>
+                {% for error in form.sub_heading.errors %}
+                <li style="color:red">{{error}}</li>
+                {% endfor %}
+            </ul>
+            <hr>
+            {{form.content.label}} <br> {{form.content}}
+            <ul>
+                {% for error in form.content.errors %}
+                <li style="color:red">{{error}}</li>
+                {% endfor %}
+            </ul>
+            <hr>
+            {{form.submit}}
+
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

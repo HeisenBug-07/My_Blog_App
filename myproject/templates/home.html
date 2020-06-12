@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="jumbotron" style="background : linear-gradient(to right, #b0b5b5, #131414);color:white">
+    <h1>Welcome To My Blog</h1>
+</div>
+<div class="container" style="">
+{% for p in post.items %}
+<div class="container">
+<div class="jumbotron" style="width : 70%; background :#e1ebe5;">
+  <h1 class="display-4">{{p.heading}}</h1>
+  <h5>{{p.sub_heading}}</h5>
+  <p class="lead">{{p.content[5:150]}}.................... </p>
+  <hr class="my-4">
+  <p>Posted On : {{p.date}} </p>
+  <a href="/posts/post/{{ p.slug }}" style="text-align: right; "  >read full post</a>
+</div>
+</div>
+{% endfor %}
+</div>
+<div class="container" style="color : white">
+    <div class="container">
+        {% for page_num in post.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+                {% if post.page == page_num %}
+                    <a class="btn btn-info mb-4" href="{{url_for('home', page=page_num)}}">{{page_num}}</a>
+                {% else %}
+                    <a class="btn btn-outline-info mb-4" href="{{url_for('home', page=page_num)}}">{{page_num}}</a>
+                {% endif %}
+            {% else %}
+                .......
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}
