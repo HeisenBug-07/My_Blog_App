@@ -88,6 +88,16 @@ def feedback():
     return redirect(url_for('Posts.login'))
 
 
+@posts_blueprint.route('/remove/<string:sno>')
+def delete_feedback(sno):
+    if 'admin' in session and session['admin'] == 'shubham@gmail.com':
+        comment = Contacts.query.filter_by(s_no=sno).first()
+        db.session.delete(comment)
+        db.session.commit()
+        return redirect(url_for('Posts.feedback'))
+    return redirect(url_for('Posts.login'))
+
+
 @posts_blueprint.route('/logout')
 def logout():
     session.pop('admin')
