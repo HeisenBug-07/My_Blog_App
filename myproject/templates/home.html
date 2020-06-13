@@ -7,7 +7,11 @@
 <div class="container" style="">
 {% for p in post.items %}
 <div class="container">
-<div class="jumbotron" style="width : 70%; background :#e1ebe5;">
+{% if p.s_no%2==0 %}
+<div class="jumbotron" style="width : 70%; background :linear-gradient(to right, #4a6965, #131414);color:white;">
+{% else %}
+<div class="jumbotron" style="width : 70%; background :linear-gradient(to right, #131414, #5e4a69);color:white;">
+{% endif %}
   <h1 class="display-4">{{p.heading}}</h1>
   <h5>{{p.sub_heading}}</h5>
   <p class="lead">{{p.content[5:150]}}.................... </p>
