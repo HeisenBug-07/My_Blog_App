@@ -33,7 +33,7 @@ def add():
     if 'admin' in session and session['admin'] == 'shubham@gmail.com':
         form = AddPosts()
         if form.validate_on_submit():
-            posts = Posts(heading=form.heading.data, sub_heading=form.heading.data,
+            posts = Posts(heading=form.heading.data, sub_heading=form.sub_heading.data,
                           content=form.content.data, date=datetime.utcnow(), slug=form.heading.data)
             db.session.add(posts)
             db.session.commit()
