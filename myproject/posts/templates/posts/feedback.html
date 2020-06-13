@@ -8,13 +8,14 @@
 <div class="container" style="width:50%">
     <div class="jumbotron">
         {% for p in f_back %}
-        {{p.name}}<br>
-        {{p.email}}<br>
+        <h5>{{p.name}}</h5> <p><span style="color:#5a0278">{{p.email}}</span></p><br>
         {{p.feedback}}<br>
-        {{p.date}}<br>
+        posted : {{p.date}}
+        <a class="btn btn-danger float-right" href="/posts/remove/{{p.s_no}}">Delete</a><br>
         <hr>
+        <br>
         {% endfor %}
+
     </div>
 </div>
-
 {% endblock %}
